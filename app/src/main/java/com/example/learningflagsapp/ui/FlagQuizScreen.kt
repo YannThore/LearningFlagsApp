@@ -1,6 +1,6 @@
-// app/src/main/java/com/example/learningflagsapp/ui/FlagQuizScreen.kt
 package com.example.learningflagsapp.ui
 
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -21,6 +21,11 @@ fun FlagQuizScreen(totalQuestions: Int = 10, onRestartQuiz: () -> Unit) {
     var isCorrect by remember { mutableStateOf<Boolean?>(null) }
     var showResult by remember { mutableStateOf(false) }
 
+    val progress by animateFloatAsState(
+        targetValue = (currentQuestionIndex + 1) / totalQuestions.toFloat(),
+        animationSpec = tween(durationMillis = 500)
+    )
+
     if (showScoreRecap) {
         ScoreRecapScreen(score = score, totalQuestions = totalQuestions, onRestartQuiz = onRestartQuiz)
     } else {
@@ -32,7 +37,7 @@ fun FlagQuizScreen(totalQuestions: Int = 10, onRestartQuiz: () -> Unit) {
         ) {
             Column {
                 LinearProgressIndicator(
-                    progress = (currentQuestionIndex + 1) / totalQuestions.toFloat(),
+                    progress = progress,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp)

@@ -8,8 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.input.TextFieldValue
-import com.example.learningflagsapp.data.Flag
-import com.example.learningflagsapp.data.FlagQuizQuestion
 
 @Composable
 fun WelcomeScreen(onStartQuiz: (String) -> Unit, onSkip: () -> Unit) {
@@ -29,7 +27,10 @@ fun WelcomeScreen(onStartQuiz: (String) -> Unit, onSkip: () -> Unit) {
         )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
-            Button(onClick = { onStartQuiz(playerName.text) }) {
+            Button(
+                onClick = { onStartQuiz(playerName.text) },
+                enabled = playerName.text.isNotEmpty()
+            ) {
                 Text(text = "Continue")
             }
             Spacer(modifier = Modifier.width(16.dp))
@@ -40,5 +41,8 @@ fun WelcomeScreen(onStartQuiz: (String) -> Unit, onSkip: () -> Unit) {
     }
 }
 
-
-
+@Preview(showBackground = true)
+@Composable
+fun PreviewWelcomeScreen() {
+    WelcomeScreen(onStartQuiz = {}, onSkip = {})
+}
