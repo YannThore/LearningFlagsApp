@@ -30,8 +30,6 @@ fun FlagQuizApp(navController: NavHostController) {
                 MainScaffold(
                     navController = navController,
                     playerName = playerName,
-                    isDarkTheme = isDarkTheme,
-                    onThemeChange = { isDarkTheme = it }
                 ) { paddingValues ->
                     HomeScreen(
                         onStartQuiz = { navController.navigate("quiz") },
@@ -43,8 +41,6 @@ fun FlagQuizApp(navController: NavHostController) {
                 MainScaffold(
                     navController = navController,
                     playerName = playerName,
-                    isDarkTheme = isDarkTheme,
-                    onThemeChange = { isDarkTheme = it }
                 ) { paddingValues ->
                     FlagQuizScreen(
                         onRestartQuiz = { navController.navigate("home") },
@@ -56,8 +52,6 @@ fun FlagQuizApp(navController: NavHostController) {
                 MainScaffold(
                     navController = navController,
                     playerName = playerName,
-                    isDarkTheme = isDarkTheme,
-                    onThemeChange = { isDarkTheme = it }
                 ) { paddingValues ->
                     SettingsScreen(
                         navController = navController,
@@ -73,8 +67,6 @@ fun FlagQuizApp(navController: NavHostController) {
                 MainScaffold(
                     navController = navController,
                     playerName = playerName,
-                    isDarkTheme = isDarkTheme,
-                    onThemeChange = { isDarkTheme = it }
                 ) { paddingValues ->
                     ScoreScreen(
                         scores = listOf(100, 95, 90, 85), // TODO : Replace with actual scores

@@ -6,6 +6,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.learningflagsapp.data.Flag
@@ -38,7 +39,12 @@ fun FlagQuiz(question: FlagQuizQuestion, onAnswerChecked: (Boolean) -> Unit) {
                         .fillMaxWidth()
                         .padding(4.dp)
                 ) {
-                    Text(text = option, modifier = Modifier.padding(start = 8.dp))
+                    Text(
+                        text = option,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.padding(start = 8.dp)
+                    )
                 }
             }
         }

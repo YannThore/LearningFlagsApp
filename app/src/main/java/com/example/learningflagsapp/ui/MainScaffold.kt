@@ -14,14 +14,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScaffold(
     navController: NavController,
     playerName: String,
-    isDarkTheme: Boolean,
-    onThemeChange: (Boolean) -> Unit,
     content: @Composable (PaddingValues) -> Unit
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
@@ -73,7 +72,11 @@ fun MainScaffold(
                                 "scores" -> Icon(Icons.Filled.Star, contentDescription = item)
                             }
                         },
-                        label = { Text(item.capitalize()) },
+                        label = { Text(item.replaceFirstChar {
+                            if (it.isLowerCase()) it.titlecase(
+                                Locale.ROOT
+                            ) else it.toString()
+                        }) },
                         selected = currentRoute == item,
                         onClick = {
                             when (item) {
