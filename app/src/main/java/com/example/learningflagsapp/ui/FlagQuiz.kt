@@ -19,14 +19,13 @@ fun FlagQuiz(question: FlagQuizQuestion, onAnswerChecked: (Boolean) -> Unit) {
 
     Column(modifier = Modifier
         .fillMaxSize()
-        .padding(16.dp)) {
+        .padding(8.dp)
+    ) {
         FlagItem(Flag(question.correctAnswer.countryName, question.correctAnswer.countryCode, 0))
 
         Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
             Text(text = "Which country's flag is this?", style = MaterialTheme.typography.headlineSmall, modifier = Modifier.padding(16.dp))
         }
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         Column(modifier = Modifier.fillMaxWidth()) {
             question.options.forEach { option ->
@@ -37,16 +36,19 @@ fun FlagQuiz(question: FlagQuizQuestion, onAnswerChecked: (Boolean) -> Unit) {
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(8.dp)
+                        .padding(4.dp)
                 ) {
                     Text(text = option, modifier = Modifier.padding(start = 8.dp))
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
-        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        Box(modifier = Modifier.fillMaxWidth()
+            .padding(8.dp),
+            contentAlignment = Alignment.Center
+        ) {
             Button(onClick = {
                 isCorrect = selectedOption == question.correctAnswer.countryName
                 onAnswerChecked(isCorrect == true)

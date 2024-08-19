@@ -74,7 +74,7 @@ fun SettingsScreen(
                     Icon(imageVector = Icons.Filled.Close, contentDescription = "Cancel")
                 }
             } else {
-                Text(text = name, modifier = Modifier.weight(1f))
+                Text(text = if(name.isEmpty()) "Enter your name" else name, modifier = Modifier.weight(1f))
                 IconButton(onClick = { isEditing = true }) {
                     Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit")
                 }

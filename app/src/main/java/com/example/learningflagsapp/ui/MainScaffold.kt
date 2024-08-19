@@ -1,4 +1,3 @@
-// MainScaffold.kt
 package com.example.learningflagsapp.ui
 
 import androidx.compose.foundation.layout.*
@@ -77,12 +76,9 @@ fun MainScaffold(
                         label = { Text(item.capitalize()) },
                         selected = currentRoute == item,
                         onClick = {
-                            navController.navigate(item) {
-                                popUpTo(navController.graph.startDestinationId) {
-                                    saveState = true
-                                }
-                                launchSingleTop = true
-                                restoreState = true
+                            when (item) {
+                                "home" -> navController.navigate("home")
+                                "scores" -> navController.navigate("scores")
                             }
                         }
                     )

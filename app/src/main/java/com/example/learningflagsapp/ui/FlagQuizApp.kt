@@ -77,7 +77,7 @@ fun FlagQuizApp(navController: NavHostController) {
                     onThemeChange = { isDarkTheme = it }
                 ) { paddingValues ->
                     ScoreScreen(
-                        scores = listOf(100, 95, 90, 85), // Replace with actual scores
+                        scores = listOf(100, 95, 90, 85), // TODO : Replace with actual scores
                         paddingValues = paddingValues
                     )
                 }

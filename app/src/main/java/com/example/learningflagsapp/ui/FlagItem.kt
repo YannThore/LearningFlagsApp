@@ -29,7 +29,6 @@ fun FlagItem(flag: Flag) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
-                .padding(16.dp)
         )
     } else {
         Text(text = "Image not found for ${flag.countryCode.uppercase()}", color = Color.Red)
