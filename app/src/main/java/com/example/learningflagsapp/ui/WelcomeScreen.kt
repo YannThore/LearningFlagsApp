@@ -8,9 +8,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.input.TextFieldValue
+import com.example.compose.AppTheme
 
 @Composable
-fun WelcomeScreen(onStartQuiz: (String) -> Unit, onSkip: () -> Unit) {
+fun WelcomeScreen(
+    onStartQuiz: (String) -> Unit,
+    onSkip: () -> Unit,
+    darkTheme: Boolean
+) {
+    AppTheme(darkTheme = darkTheme) {
+        WelcomeScreenContent(onStartQuiz = onStartQuiz, onSkip = onSkip)
+    }
+
+}
+
+@Composable
+fun WelcomeScreenContent(onStartQuiz: (String) -> Unit, onSkip: () -> Unit) {
     var playerName by remember { mutableStateOf(TextFieldValue("")) }
 
     Column(
@@ -43,6 +56,6 @@ fun WelcomeScreen(onStartQuiz: (String) -> Unit, onSkip: () -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewWelcomeScreen() {
-    WelcomeScreen(onStartQuiz = {}, onSkip = {})
+fun PreviewWelcomeScreenContent() {
+    WelcomeScreen(onStartQuiz = {}, onSkip = {}, darkTheme = false)
 }

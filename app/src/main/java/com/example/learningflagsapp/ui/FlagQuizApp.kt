@@ -22,7 +22,8 @@ fun FlagQuizApp(navController: NavHostController) {
                         playerName = name
                         navController.navigate("home")
                     },
-                    onSkip = { navController.navigate("home") }
+                    onSkip = { navController.navigate("home") },
+                    darkTheme = isDarkTheme
                 )
             }
             composable("home") {

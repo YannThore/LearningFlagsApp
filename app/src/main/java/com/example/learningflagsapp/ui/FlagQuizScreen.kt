@@ -35,7 +35,7 @@ fun FlagQuizScreen(totalQuestions: Int = 10, onRestartQuiz: () -> Unit, paddingV
             elevation = CardDefaults.cardElevation(6.dp),
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
+                .padding(paddingValues)
         ) {
             Column {
                 LinearProgressIndicator(

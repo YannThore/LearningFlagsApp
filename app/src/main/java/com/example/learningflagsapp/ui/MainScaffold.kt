@@ -90,7 +90,7 @@ fun MainScaffold(
             }
         },
         content = { paddingValues ->
-            Box(modifier = Modifier.padding(paddingValues)) {
+            Box(modifier = Modifier.padding(16.dp)) {
                 content(paddingValues)
             }
         }
