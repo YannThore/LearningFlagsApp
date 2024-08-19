@@ -1,9 +1,11 @@
 package com.example.learningflagsapp.ui
 
-import androidx.compose.animation.core.*
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -12,7 +14,7 @@ import com.example.learningflagsapp.data.generateFlagQuizQuestions
 import com.example.learningflagsapp.data.getFlags
 
 @Composable
-fun FlagQuizScreen(totalQuestions: Int = 10, onRestartQuiz: () -> Unit) {
+fun FlagQuizScreen(totalQuestions: Int = 10, onRestartQuiz: () -> Unit, paddingValues: PaddingValues) {
     val context = LocalContext.current
     val questions = remember { generateFlagQuizQuestions(context, getFlags(context)) }
     var currentQuestionIndex by remember { mutableStateOf(0) }
@@ -74,5 +76,5 @@ fun FlagQuizScreen(totalQuestions: Int = 10, onRestartQuiz: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewFlagQuizScreen() {
-    FlagQuizScreen(onRestartQuiz = {})
+    FlagQuizScreen(onRestartQuiz = {}, paddingValues = PaddingValues())
 }
